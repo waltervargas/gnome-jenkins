@@ -1,0 +1,11 @@
+def packages = ["gnome-todo"]
+def baseimage = 'waltervargas/jhbuild-sysdeps-usefull-packages'
+
+node {
+
+  //checkout scm
+
+  docker.image(baseimage).inside {
+    sh 'echo hello'
+  }
+}
