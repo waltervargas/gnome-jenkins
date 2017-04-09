@@ -1,6 +1,6 @@
 def project = [
-  name: "gnome-todo"
-  git_url: "https://github.com/waltervargas/gnome-todo",
+  name: "gnome-todo",
+  git_url: "https://github.com/waltervargas/gnome-todo"
 ]
 
 multibranchPipelineJob(project.name) {
