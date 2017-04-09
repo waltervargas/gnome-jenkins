@@ -4,7 +4,6 @@ def project = [
 ]
 
 multibranchPipelineJob(project.name) {
-  logRotator(numToKeep = 200)
   // triggers {
   //   scm('H * * * *')
   // }
