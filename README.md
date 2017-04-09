@@ -8,12 +8,10 @@ Jenkins Pipeline for GNOME projects
 
 ## Steps
 
-1. Build image
-   ```
+```
 docker build -t waltervargas/gnome-jenkins . 
-   ```
-   
-1. Run
-   ```
+```   
+
+```
 docker run -p 8080:8080 -p 50000:50000 waltervargas/gnome-jenkins 
-   ```
+```
