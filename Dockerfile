@@ -18,4 +18,5 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && apt-get -y install $PACK
 USER jenkins
 ENV GIT_URL https://github.com/waltervargas/gnome-jenkins.git
 ENV GIT_BRANCH master
-ENV DOCKER_HOST="tcp://172.17.0.1"
+
+RUN flatpak install gnome org.gnome.Sdk 3.20
