@@ -1,0 +1,7 @@
+version: '3.0'
+
+services:
+  jenkins:
+    image: waltervargas/gnome-jenkins:flatpak
+    ports:
+      - 8080:8080
