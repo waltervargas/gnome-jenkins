@@ -18,6 +18,12 @@ RUN chmod +x /usr/local/bin/docker
 USER jenkins
 RUN /usr/local/bin/install-plugins.sh docker docker-custom-build-environment blueocean maven-plugin
 
+USER root
+ENV PACKAGES flatpak-builder
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && apt-get -y install $PACKAGES && apt-file update && rm -rf /var/lib/apt/lists/*
+
+USER jenkins
+
 ENV GIT_URL https://github.com/waltervargas/gnome-jenkins.git
 ENV GIT_BRANCH master
 ENV DOCKER_HOST="tcp://172.17.0.1"
