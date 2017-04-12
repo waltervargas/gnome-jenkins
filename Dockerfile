@@ -20,7 +20,7 @@ RUN /usr/local/bin/install-plugins.sh docker docker-custom-build-environment blu
 
 USER root
 ENV PACKAGES flatpak-builder
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && apt-get -y install $PACKAGES && apt-file update && rm -rf /var/lib/apt/lists/*
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && apt-get -y install $PACKAGES && rm -rf /var/lib/apt/lists/*
 
 USER jenkins
 
