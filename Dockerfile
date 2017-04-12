@@ -12,11 +12,15 @@ COPY files/* /tmp/
 COPY files/gitconfig /var/jenkins_home/.gitconfig
 
 USER root
+RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
+
 ENV PACKAGES flatpak flatpak-builder
-RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && apt-get -y install $PACKAGES && rm -rf /var/lib/apt/lists/*
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y update && apt-get -y -t jessie-backports install $PACKAGES && rm -rf /var/lib/apt/lists/*
+
+RUN flatpak remote-add gnome-nightly --from https://sdk.gnome.org/gnome-nightly.flatpakrepo && flatpak install gnome-nightly org.gnome.Sdk
 
 USER jenkins
-ENV GIT_URL https://github.com/waltervargas/gnome-jenkins.git
-ENV GIT_BRANCH master
+WORKDIR /var/jenkins_home
 
-RUN flatpak install gnome org.gnome.Sdk 3.20
+ENV GIT_URL https://github.com/waltervargas/gnome-jenkins.git
+ENV GIT_BRANCH flatpak
