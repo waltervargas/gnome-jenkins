@@ -1,5 +1,5 @@
 def project = [
-  name: "gnome-todo",
+  name: "gnome-todo-flatpak-builder",
   git_url: "https://github.com/albfan/gnome-todo"
 ]
 
