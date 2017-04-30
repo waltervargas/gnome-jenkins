@@ -4,9 +4,6 @@ def project = [
 ]
 
 multibranchPipelineJob(project.name) {
-  // triggers {
-  //   scm('H * * * *')
-  // }
   branchSources {
     git {
       remote(project.git_url)
