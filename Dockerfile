@@ -1,6 +1,10 @@
 FROM jenkins:2.32.3
 LABEL maintainer "waltervargas@linux.com"
 
+USER root
+RUN wget -c https://master.dockerproject.org/linux/amd64/docker-17.04.0-dev -O /usr/local/bin/docker
+RUN chmod +x /usr/local/bin/docker
+
 USER jenkins
 
 # Install Plugins
@@ -23,4 +27,4 @@ USER jenkins
 WORKDIR /var/jenkins_home
 
 ENV GIT_URL https://github.com/waltervargas/gnome-jenkins.git
-ENV GIT_BRANCH flatpak
+ENV GIT_BRANCH master
