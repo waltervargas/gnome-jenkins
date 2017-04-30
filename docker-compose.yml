@@ -1,7 +1,13 @@
 version: '3.0'
 
+volumes:
+  jenkins-home:
+    driver: local
+
 services:
   jenkins:
-    image: waltervargas/gnome-jenkins:flatpak
+    image: waltervargas/gnome-jenkins:master
     ports:
       - 8080:8080
+    volumes:
+      - jenkins-home:/var/jenkins_home
