@@ -6,11 +6,13 @@ volumes:
 
 services:
   jenkins:
-    image: waltervargas/gnome-jenkins:latest
+    image: waltervargas/gnome-jenkins:master
     ports:
       - 8080:8080
     volumes:
       - jenkins-home:/var/jenkins_home
+    cap_add:
+      - SYS_PTRACE
 
   bugzilla:
     container_name: bugzilla-dev
