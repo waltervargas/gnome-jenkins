@@ -6,8 +6,15 @@ volumes:
 
 services:
   jenkins:
-    image: waltervargas/gnome-jenkins:master
+    image: waltervargas/gnome-jenkins:latest
     ports:
       - 8080:8080
     volumes:
       - jenkins-home:/var/jenkins_home
+
+  bugzilla:
+    container_name: bugzilla-dev
+    image: bugzilla/bugzilla-dev
+    ports:
+      - "80:80"
+      - "5900:5900"
