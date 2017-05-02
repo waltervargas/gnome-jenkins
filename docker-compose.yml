@@ -12,7 +12,7 @@ services:
     volumes:
       - jenkins-home:/var/jenkins_home
     cap_add:
-      - SYS_PTRACE
+      - ALL
 
   bugzilla:
     container_name: bugzilla-dev
