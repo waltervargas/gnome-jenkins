@@ -13,6 +13,7 @@ services:
       - jenkins-home:/var/jenkins_home
     cap_add:
       - ALL
+    privileged: true
 
   bugzilla:
     container_name: bugzilla-dev
